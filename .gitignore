@@ -1,3 +1,9 @@
+# Python files
+*.egg-info
+*.pyc
+*.pyo
+__pycache__
+
 # Image files
 *.jpg
 *.webp
