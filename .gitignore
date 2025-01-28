@@ -4,6 +4,9 @@
 *.pyo
 __pycache__
 
+# Cache files
+tmp/
+
 # Image files
 *.jpg
 *.webp
