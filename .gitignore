@@ -1,3 +1,20 @@
+# Hidden files
+.*
+
+# Python files
+*.egg-info
+*.pyc
+*.pyo
+__pycache__
+
+# Build files
+build/
+dist/
+
+# Cache files
+tmp/
+
+# Image files
 *.jpg
-*.webp
 *.png
+*.webp
