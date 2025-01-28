@@ -7,6 +7,10 @@
 *.pyo
 __pycache__
 
+# Build files
+build/
+dist/
+
 # Cache files
 tmp/
 
