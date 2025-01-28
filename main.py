@@ -1,6 +1,6 @@
 import cv2
 import os
-from converter import PageConverter
+from src.webtoon2comic.split_webtoon_image.converter import PageConverter
 
 # needleImage="./pic/1.jpg"
 # needleImage2="./pic/2.jpg"

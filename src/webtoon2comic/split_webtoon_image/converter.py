@@ -53,7 +53,7 @@ class PageConverter():
 
             #判斷區域內是否全黑or全白 
             next_area=gray[i:i+fliter_length]
-            _, binaryBlack = cv2.threshold(next_area, 25, 255, cv2.THRESH_TOZERO)# 小於25轉成0(全黑),其他不變
+            _, binaryBlack = cv2.threshold(next_area, 40, 255, cv2.THRESH_TOZERO)# 小於25轉成0(全黑),其他不變
             _, binaryWhite = cv2.threshold(next_area, 200, 255, cv2.THRESH_BINARY)#>200轉成255(全白),其他全轉0
             countBlack = np.sum(binaryBlack == 0)
             countWhite = np.sum(binaryWhite == 255)
