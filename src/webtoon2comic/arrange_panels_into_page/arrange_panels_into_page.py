@@ -1,6 +1,5 @@
-
-from PIL.Image import Image as ImageType
 from PIL import Image, ImageOps
+from PIL.Image import Image as ImageType
 
 
 def arrange_panels_into_page(

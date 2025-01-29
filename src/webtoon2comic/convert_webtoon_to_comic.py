@@ -1,10 +1,11 @@
 from pathlib import Path
-from .read_images_from_folder import read_images_from_folder
-from .split_webtoon_image.split_webtoon_image import split_webtoon_image
-from .arrange_panels_into_page.arrange_panels_into_page import arrange_panels_into_page
-from .save_pages_as_cbz import save_pages_as_cbz
+
 from PIL.Image import Image as ImageType
 
+from .arrange_panels_into_page.arrange_panels_into_page import arrange_panels_into_page
+from .read_images_from_folder import read_images_from_folder
+from .save_pages_as_cbz import save_pages_as_cbz
+from .split_webtoon_image.split_webtoon_image import split_webtoon_image
 
 
 def convert_webtoon_to_comic(
@@ -41,4 +42,3 @@ def convert_webtoon_to_comic(
 
     # Save all pages as a CBZ file
     save_pages_as_cbz(all_pages, output_file, temp_dir)
-

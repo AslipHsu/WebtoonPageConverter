@@ -1,6 +1,6 @@
 from pathlib import Path
-from .convert_webtoon_to_comic import convert_webtoon_to_comic
 
+from .convert_webtoon_to_comic import convert_webtoon_to_comic
 
 
 if __name__ == "__main__":

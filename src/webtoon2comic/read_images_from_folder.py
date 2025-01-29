@@ -1,6 +1,7 @@
-from PIL.Image import Image as ImageType
 from pathlib import Path
+
 from PIL import Image
+from PIL.Image import Image as ImageType
 
 
 def read_images_from_folder(input_folder: Path) -> list[ImageType]:

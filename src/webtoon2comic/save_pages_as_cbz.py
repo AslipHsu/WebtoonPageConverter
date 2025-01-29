@@ -1,7 +1,9 @@
-from PIL.Image import Image as ImageType
-from pathlib import Path
-import zipfile
 import os
+import zipfile
+from pathlib import Path
+
+from PIL.Image import Image as ImageType
+
 
 def save_pages_as_cbz(
     pages: list[ImageType], output_file: Path, temp_dir: Path
@@ -20,4 +22,3 @@ def save_pages_as_cbz(
             page.save(temp_file_path, "JPEG")
             cbz.write(temp_file_path, arcname=image_name)
             os.remove(temp_file_path)
-
