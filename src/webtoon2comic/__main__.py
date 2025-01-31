@@ -44,6 +44,13 @@ if __name__ == "__main__":
         help="Reading order: 'right-to-left' for manga, 'left-to-right' for western comics.",
     )
     parser.add_argument(
+        "--split",
+        type=str,
+        choices=["fixed-size", "cut-space"],
+        default="fixed-size",
+        help="split mode: 'fixed-size' , 'cut-space' ",
+    )
+    parser.add_argument(
         "--temp-dir",
         type=Path,
         default=None,
@@ -62,4 +69,5 @@ if __name__ == "__main__":
         columns=args.columns,
         rows=args.rows,
         reading_order=args.reading_order,
+        split=args.split,
     )
