@@ -18,3 +18,7 @@ tmp/
 *.jpg
 *.png
 *.webp
+*.cbz
+
+# Test files
+test.py
