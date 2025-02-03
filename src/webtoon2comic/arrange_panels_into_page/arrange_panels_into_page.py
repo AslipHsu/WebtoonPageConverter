@@ -8,7 +8,7 @@ def arrange_panels_into_page(
     page_height: int = 1800,
     columns: int = 2,
     rows: int = 3,
-    reading_order: str = "right-to-left",  # Options: 'right-to-left', 'left-to-right'
+    reading_order: str = "right-to-left top-to-down",  # Options: 'right-to-left', 'left-to-right'
 ) -> ImageType:
     """Arrange panels into a single page with multiple rows and columns."""
     # Calculate each panel's size to fit in the grid
@@ -17,10 +17,6 @@ def arrange_panels_into_page(
 
     # Create a blank page
     page = Image.new("RGB", (page_width, page_height), "white")
-
-    # Adjust panel order based on reading direction
-    if reading_order == "right-to-left":
-        panels = list(reversed(panels))
 
     # Place panels in grid
     for i, panel in enumerate(panels):
@@ -32,7 +28,7 @@ def arrange_panels_into_page(
 
         # Adjust column index for right-to-left reading
         if reading_order == "right-to-left":
-            col = columns - 1 - col
+            col = columns - 1 - (i % columns)  # 右到左
 
         # Calculate position
         x = col * panel_width
