@@ -7,6 +7,10 @@ from .read_images_from_folder import read_images_from_folder
 from .save_pages_as_cbz import save_pages_as_cbz
 from .split_webtoon_image.split_webtoon_image import split_webtoon_image
 from .split_webtoon_image.split_webtoon_image2 import split_webtoon_image_by_cut_space
+from .split_webtoon_image.split_webtoon_image_by_stable_rows import (
+    split_webtoon_image as split_webtoon_image_by_stable_rows,
+)
+
 
 def convert_webtoon_to_comic(
     input_folder: Path,
@@ -18,7 +22,7 @@ def convert_webtoon_to_comic(
     columns=2,
     rows=3,
     reading_order="right-to-left",
-    split="fixed-size",#fixed-size, cut-space
+    split="fixed-size",  # fixed-size, cut-space
 ) -> None:
     """Main function to convert webtoon format to traditional comic format."""
     images = read_images_from_folder(input_folder)
@@ -26,12 +30,16 @@ def convert_webtoon_to_comic(
 
     for image in images:
         # Split the image into multiple panels
-        if split=="fixed-size":
-            panels = split_webtoon_image(image, panel_height=panel_height)
-        elif split=="cut-space":
-            panels = split_webtoon_image_by_cut_space(image)
-        else:
-            panels = split_webtoon_image(image, panel_height=panel_height)
+        match split:
+            case "fixed-size":
+                panels = split_webtoon_image(image, panel_height=panel_height)
+            case "cut-space":
+                panels = split_webtoon_image_by_cut_space(image)
+            case "stable-rows":
+                panels = split_webtoon_image_by_stable_rows(image)
+            case _:
+                panels = split_webtoon_image(image, panel_height=panel_height)
+
         # Arrange all panels into pages
         for i in range(0, len(panels), columns * rows):
             page_panels = panels[i : i + columns * rows]
